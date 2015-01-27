@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>WAYW</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <!-- <link href="Static/css/freelancer.css" rel="stylesheet"> -->
+
+    <!-- Custom Fonts -->
+    <!-- <link href="Static/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">Stock</a>
+                <div class = "glasses">
+                <img  src="static/img/glasses.png" alt="glasses">
+            </div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                     <li class="page-scroll">
+                        <!-- <a href="#about">Login</a> -->
+                    <li class="page-scroll">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class = center>{{date}}</h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        </br>
+
+
+         {% for i in estimates %}
+            <div class="row">
+            <div class="col-md-8">
+                <h3><a href="{{i['link']}}">{{i['title']}}</a></h3>
+            </div>
+            
+            <div class="col-md-4">
+            {% if i['ticker'] is none %}
+                <h3 class = center>Stock Information not available</h3>
+                
+                    {% else %}
+                    <h3 class = center>{{i['ticker']}}</h3>
+                        
+                        <div class="col-md-6">
+                            Exchange:{{i['exchange']}}<br>
+                            Price: {{i['price']}}<br>
+                            Market Cap:{{i['market_cap']}}<br>
+                            Daily Vol.:{{i['avg_daily_vol']}}<br>
+                            EPS:{{i['eps']}}<br>
+
+                        </div>
+                        <div class="col-md-6">
+                           52 Week Low:{{i['fiftytwo_low']}}<br>
+                           52 Week High:{{i['fiftytwo_high']}}<br>
+                           PE Ratio:{{i['pe_ratio']}}<br>
+                           PE Growth Ratio:{{i['pe_growth_ratio']}}<br>
+                           Short Ratio:{{i['short_ratio']}}<br>
+                        </div>
+            {% endif %}
+           <!--  <h4>Subheading</h4>
+                <p>test</p>
+                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a> -->
+            </div>
+            </div>  
+        {% endfor %}
+
+      
+                         price, market cap, avg daily vol, eps 52 week low and high, PE ratio, PE growth ratio, short ratio      
+        
+
+        
+        <!-- <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li>
+                        <a href="#">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+                    <li>
+                        <a href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div> -->
+        
+
+        
+
+        <!-- Footer -->
+        <!-- <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        <!-- </footer> --> 
+
+    </div>
+  
+
+
+    
+
+
+</body>
+
+</html>
